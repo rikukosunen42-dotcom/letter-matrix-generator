@@ -13,7 +13,7 @@ def fill( matrix: list, start: int, end: int, letter: str ):
             
     # Builds the letter square layer by layer,
     # starting from the outermost layer.
-def fill_all_layers( matrix: list, layers ):
+def fill_all_layers( matrix: list, layers: int ):
     for i in range(0, layers):
         # Fill one square layer at a time from outside to inside.
         fill(matrix, i, 2*layers - 1 - i, string.ascii_uppercase[layers - 1 - i] )

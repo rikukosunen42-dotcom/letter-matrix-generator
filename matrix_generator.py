@@ -1,6 +1,4 @@
-number_to_letters = {1:"A", 2:"B", 3:"C", 4:"D", 5:"E", 6:"F", 7:"G",8:"H", 9:"I",
-                10:"J", 11:"K", 12:"L", 13:"M", 14:"N", 15:"O", 16:"P",17:"Q",
-                18:"R", 19:"S", 20:"T", 21:"U", 22:"V", 23: "W", 24: "X", 25: "Y", 26: "Z"}
+import string
 
     # Fills the border of a square area in the matrix
     # with the given letter.
@@ -15,10 +13,10 @@ def fill( matrix: list, start: int, end: int, letter: str ):
             
     # Builds the letter square layer by layer,
     # starting from the outermost layer.
-def fill_all_layers( matrix: list, layers: int, letters: dict):
-    for i in range(0, layers-1):
+def fill_all_layers( matrix: list, layers ):
+    for i in range(0, layers):
         # Fill one square layer at a time from outside to inside.
-        fill(matrix, i, 2*layers - 1 - i, letters[layers-i] )
+        fill(matrix, i, 2*layers - 1 - i, string.ascii_uppercase[layers - 1 - i] )
 
 
 
@@ -40,7 +38,7 @@ def create_and_print():
     matrix = create_matrix( layers )
 
     if layers != 1:
-        fill_all_layers( matrix, layers, number_to_letters )
+        fill_all_layers( matrix, layers )
 
     print_matrix( matrix )
 
